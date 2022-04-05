@@ -14,7 +14,7 @@ export const BackButton = () => {
   }
   return (
     <>
-      <input type="input" className={styles.BackButton} onClick={()=>test()}></input>
+      <input type="input" className={styles.BackButton} onClick={(event)=>test(event)}></input>
     </>
   )
 }
