@@ -1,14 +1,19 @@
-import { useNavigate } from "react-router"
 import styles from "./BackButton.module.scss"
-import { Link } from 'react-router-dom'
-export const BackButton = ({children, to, onClick, ...props}) => {
-  const navigate = useNavigate()
-  const goBack = (event) => {
-    if (to) {
-      return
-    }
-    event.preventDefault()
-    navigate(-1)
+export const BackButton = () => {
+    const test = (event) => {
+    event.preventDefault();
+    axios.get("http://ec2-100-26-175-97.compute-1.amazonaws.com:8080/categories").then(console.log)
+    axios.post("http://ec2-100-26-175-97.compute-1.amazonaws.com:8080/login", {
+      data: JSON.stringify({
+        username: "mdaffonso@gmail.com",
+        password: "Senha@123456"
+      })
+    }).then(console.log)
+
   }
-  return <Link className={styles.BackButton} to={to ?? "/"} onClick={goBack} {...props}>{children}</Link>
+  return (
+    <>
+      <input type="input" className={styles.BackButton} onClick={()=>test()}></input>
+    </>
+  )
 }
